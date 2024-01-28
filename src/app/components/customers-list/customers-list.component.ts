@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Customer } from '../models/customer.model';
+import { Customer } from '../../models/customer.model';
 import { Router } from '@angular/router';
-import { CustomerService } from '../sevices/customer.service';
+import { CustomerService } from '../../sevices/customer.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-customers-list',
@@ -14,7 +14,7 @@ constructor(private customerService: CustomerService,private router :Router){}
 
 ngOnInit(): void {
  
-this.customerService.GetAllCustomers()
+this.customerService.getAllCustomers()
 .subscribe({
   next:(customers)=>
   {
@@ -30,7 +30,13 @@ this.customerService.GetAllCustomers()
 
 
 goToDetails(id: string){
-this.router.navigate([`/customer-details/${id}`])
-}
+  this.router.navigate([`/customer-details/${id}`])
+  }
+  goToDelete(id: string){
+    this.router.navigate([`/delete-customer/${id}`])
+    }
+    updateCustomer(id: string): void {
+      this.router.navigate(['/customer-update', id]);
+    }
 }
 

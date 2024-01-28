@@ -1,0 +1,31 @@
+<p>customer-update works!</p>
+<!-- customer-update.component.html -->
+
+<div class="container mt-3" *ngIf="customerDetails">
+    <h2>Update Customer</h2>
+    
+    <!-- Update customer details form -->
+    <form (ngSubmit)="updateCustomer()">
+      <!-- Add form fields for customer details -->
+      <button type="submit" class="btn btn-primary">Update Customer</button>
+    </form>
+  
+    <!-- Add contact form -->
+    <div class="mt-4">
+      <h4>Add Contact</h4>
+      <form (ngSubmit)="addContact()">
+        <!-- Add form fields for contact details -->
+        <button type="submit" class="btn btn-success">Add Contact</button>
+      </form>
+    </div>
+  
+    <!-- Add address form -->
+    <div class="mt-4">
+      <h4>Add Address</h4>
+      <form (ngSubmit)="addAddress()">
+        <!-- Add form fields for address details -->
+        <button type="submit" class="btn btn-success">Add Address</button>
+      </form>
+    </div>
+  </div>
+  
