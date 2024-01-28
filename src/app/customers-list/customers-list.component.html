@@ -3,20 +3,24 @@
   
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Customer</th>
         <th scope="col">Id</th>
-       
+        <th scope="col">Customer</th>
+        <th scope="col">IdNumber</th>
+        <th scope="col">Date</th>
+        <th scope="col">Delete Customer</th>
+
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let c of customers">
-        <th></th>
-        <td>{{c.fullName}}</td>
         <td>{{c.id}}</td>
-        <td>@mdo</td>
+        <td (click)="goToDetails(c.id)">{{c.fullName}}</td>
+        <td>{{c.numId}}</td>
+        <td>{{c.created}}</td>
+        <td><a [routerLink]="['delete-customer/:id']">  <i class="bi bi-trash-fill"></i></a></td>
+
       </tr>
     </tbody>
   </table>
-
+  <i class="bi bi-trash-fill"></i>
 <router-outlet> </router-outlet>

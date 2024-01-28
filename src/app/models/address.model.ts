@@ -1,8 +1,8 @@
 
 export interface Address
 {
-  id?:number,
+  id?:string,
   city:string,
   street:string,
-  customerId:number
+  customerId:string
 }

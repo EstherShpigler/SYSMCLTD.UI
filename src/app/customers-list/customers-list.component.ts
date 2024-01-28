@@ -1,20 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Customer } from '../models/customer.model';
+import { Router } from '@angular/router';
+import { CustomerService } from '../sevices/customer.service';
 
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
   styleUrls: ['./customers-list.component.css']
 })
-export class CustomersListComponent {
-customers:Customer[]=[
+export class CustomersListComponent implements OnInit{
+ customers:Customer[]=[];
+constructor(private customerService: CustomerService,private router :Router){}
+
+ngOnInit(): void {
+ 
+this.customerService.GetAllCustomers()
+.subscribe({
+  next:(customers)=>
   {
-    id:120,
-    fullName:'harry'
+    if(this.customers.length == 0)
+       this.customers=customers;
   },
-  {
-    id:123,
-    fullName:'barry'
-  }
-];
+  error:(response)=>
+  { console.log(response);}
+});
+
+
 }
+
+
+goToDetails(id: string){
+this.router.navigate([`/customer-details/${id}`])
+}
+}
+

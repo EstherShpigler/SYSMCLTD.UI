@@ -1,0 +1,16 @@
+.footer-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; 
+    padding: 10px;
+ }
+
+.foot{
+align-self: center;
+margin-bottom: 10px;
+}

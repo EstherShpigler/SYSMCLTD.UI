@@ -1,10 +1,10 @@
 
 export interface Contact
 {
-    id?:number,
+  id?:string,
   fullName:string,
   officeNumber:number,
   email:string,
-  customerId:number
+  customerId:string
 
 }
