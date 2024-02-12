@@ -4,7 +4,7 @@ import { Address } from '../../models/address.model';
 import { Contact } from '../../models/contacts.model';
 import { CustomerService } from 'src/app/sevices/customer.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
 
 @Component({
@@ -51,11 +51,33 @@ export class AddCustomerComponent implements OnInit {
     addAddress(): void {
       const addressesArray = this.customerForm.get('address') as FormArray;
       addressesArray.push(this.fb.group({city:[],street:[]}));
+      console.log(this.customerForm, "cf")
     }
+
+   get  myAddress(): FormControl[] {
+      
+      
+      return (this.customerForm.get("address") as FormArray).controls as FormControl[];
+    }
+
+
+    get  myContacts(): FormControl[] {
+      
+      
+      return (this.customerForm.get("contact") as FormArray).controls as FormControl[];
+    }
+
+
   
     removeAddress(index: number): void {
       const addressesArray = this.customerForm.get('address') as FormArray;
       addressesArray.removeAt(index);
+    }
+
+    getControl(a :number, cName: string) {
+      
+        console.log(this.customerForm, "cf");
+       return (this.customerForm.get('address') as FormArray).controls[a].get(cName)! as FormControl;
     }
   
     addContact(): void {

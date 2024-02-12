@@ -13,8 +13,7 @@ import { DeleteCustomerComponent } from './components/delete-customer/delete-cus
 const routes: Routes =[
 
 {path:'HomePage',component:AppComponent},
-{path:'**',component:AppComponent},
-{path:'',component:AppComponent},
+
 {path:'footer',component:FooterComponent},
 {path:'navbar',component:NavbarComponent},
 {path:'customers-list',component:CustomersListComponent},
