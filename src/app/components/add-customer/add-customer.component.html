@@ -5,7 +5,7 @@
     <div class="form-group">
       <label for="fullName">Full Name:</label>
       <input type="text" id="fullName" class="form-control" formControlName="fullName" />
-      <div *ngIf="customerForm.get('fullName').hasError('pattern')" class="invalid-feedback">
+      <div *ngIf="customerForm.get('fullName')?.hasError('pattern')" class="invalid-feedback">
         Invalid characters. Only letters and spaces are allowed.
       </div>
     </div>
@@ -13,22 +13,22 @@
     <div class="form-group">
       <label for="numId">Social Security Number:</label>
       <input type="text" id="numId" class="form-control" formControlName="numId" />
-      <div *ngIf="customerForm.get('numId').hasError('pattern')" class="invalid-feedback">
+      <div *ngIf="customerForm.get('numId')?.hasError('pattern')" class="invalid-feedback">
         Invalid SSN. It should be a 9-digit number.
       </div>
     </div>
 
     <!-- Addresses -->
-    <div formArrayName="addresses">
-      <div *ngFor="let address of addresses.controls; let i = index"  class="mb-3">
+    <div formArrayName="address">
+      <div *ngFor="let a of address; let i = index"  class="mb-3">
         <div class="form-row">
           <div class="col">
             <label for="city{{ i }}">City:</label>
-            <input type="text" [id]="'city' + i" class="form-control" fromControlName="address.get('city')" />
+            <input type="text" [id]="'city' + i" class="form-control" fromControlName="a.get('city')" />
           </div>
           <div class="col">
             <label for="street{{ i }}">Street:</label>
-            <input type="text" [id]="'street' + i" class="form-control" fromControlName="address.get('street')" />
+            <input type="text" [id]="'street' + i" class="form-control" fromControlName="a.get('street')" />
           </div>
         </div>
         <button type="button" class="btn btn-danger mt-2" (click)="removeAddress(i)">Remove Address</button>
@@ -37,20 +37,20 @@
     </div>
 
     <!-- Contacts -->
-    <div formArrayName="contacts" class="mt-4">
-      <div *ngFor="let contact of contacts.controls; let i = index"   class="mb-3">
+    <div formArrayName="contact" class="mt-4">
+      <div *ngFor="let c of contact; let i = index"   class="mb-3">
         <div class="form-row">
           <div class="col">
             <label for="fullName{{ i }}">Full Name:</label>
-            <input type="text" [id]="'fullName' + i" class="form-control" fromControlName="contact.get('fullName')" />
+            <input type="text" [id]="'fullName' + i" class="form-control" fromControlName="c.get('fullName')" />
           </div>
           <div class="col">
             <label for="officeNumber{{ i }}">Office Number:</label>
-            <input type="number" [id]="'officeNumber' + i" class="form-control" fromControlName="contact.get('officeNumber')" />
+            <input type="number" [id]="'officeNumber' + i" class="form-control" fromControlName="c.get('officeNumber')" />
           </div>
           <div class="col">
             <label for="email{{ i }}">Email:</label>
-            <input type="email" [id]="'email' + i" class="form-control" fromControlName="contact.get('email')" />
+            <input type="email" [id]="'email' + i" class="form-control" fromControlName="c.get('email')" />
           </div>
         </div>
         <button type="button" class="btn btn-danger mt-2" (click)="removeContact(i)">Remove Contact</button>

@@ -47,14 +47,7 @@ export class AddCustomerComponent implements OnInit {
   }
  
   
-    // get address():from {
-    //   return this.customerForm.get('address') as FormArray;
-    // }
-  
-    // get contact() {
-    //   return this.customerForm.get('contact') as FormArray;
-    // }
-  
+ 
     addAddress(): void {
       const addressesArray = this.customerForm.get('address') as FormArray;
       addressesArray.push(this.fb.group({city:[],street:[]}));

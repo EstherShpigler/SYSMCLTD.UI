@@ -29,14 +29,14 @@ this.customerService.getAllCustomers()
 }
 
 
-goToDetails(id: string){
+goToDetails(id: string|undefined){
   this.router.navigate([`/customer-details/${id}`])
   }
-  goToDelete(id: string){
+goToDelete(id: string| undefined){
     this.router.navigate([`/delete-customer/${id}`])
     }
-    updateCustomer(id: string): void {
-      this.router.navigate(['/customer-update', id]);
+updateCustomer(id: string|undefined): void {
+      this.router.navigate([`/customer-update/${id}`]);
     }
 }
 
