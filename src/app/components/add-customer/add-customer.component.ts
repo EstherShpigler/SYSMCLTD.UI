@@ -76,7 +76,6 @@ export class AddCustomerComponent implements OnInit {
 
     getControl(a :number, cName: string) {
       
-        console.log(this.customerForm, "cf");
        return (this.customerForm.get('address') as FormArray).controls[a].get(cName)! as FormControl;
     }
   
@@ -94,7 +93,6 @@ export class AddCustomerComponent implements OnInit {
       if (this.customerForm.valid)
       {
         const formData = this.customerForm.value;
-        console.log(formData);
       }
     }
 
